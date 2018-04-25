@@ -1,7 +1,6 @@
 package rest.db.service;
 
 import org.mongodb.morphia.Datastore;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rest.db.AppDatabase;
 import rest.db.dao.RouteDAO;
@@ -14,7 +13,6 @@ public class RouteService implements RouteDAO {
 
     private Datastore datastore;
 
-    @Autowired
     public RouteService(AppDatabase database) {
         this.datastore = database.getInstance();
     }
