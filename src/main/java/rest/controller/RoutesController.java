@@ -9,12 +9,10 @@ import rest.db.service.RouteService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 public class RoutesController {
 
-    private final AtomicLong counter = new AtomicLong();
     private RouteService routeService;
 
     public RoutesController(RouteService routeService) {
@@ -23,6 +21,7 @@ public class RoutesController {
 
     @RequestMapping(value = "/routes", method = RequestMethod.GET)
     public List<Route> getRoutes(@RequestParam(value="fromLocation", required=false, defaultValue="Saint-Petersburg") String location) {
+        System.out.println("GET ROUTES");
         return routeService.getAllRoutes();
     }
 
@@ -33,6 +32,7 @@ public class RoutesController {
             BindingResult result,
             HttpServletResponse response
     ) throws BindException {
+        System.out.println("SAVE ROUTE");
         if (result.hasErrors()) throw new BindException(result);
         routeService.addRoute(route);
         response.setHeader("Location", "/routes/" + route.getId());
