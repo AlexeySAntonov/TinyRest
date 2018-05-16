@@ -31,5 +31,6 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.mongodb.morphia:morphia:1.3.2")
     compile 'org.mongodb:mongo-java-driver:3.6.3'
+    compile 'org.json:json:20171018'
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
